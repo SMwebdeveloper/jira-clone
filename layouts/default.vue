@@ -1,7 +1,7 @@
 <template>
     <div>
         <LayoutsMainNavbar/>
-        <section>
+        <section class="min-h-screen bg-white dark:bg-black">
             <slot/>
         </section>
     </div>
