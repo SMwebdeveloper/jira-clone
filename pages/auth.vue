@@ -1,6 +1,6 @@
 <script setup lang="ts">
 import { ACCOUNT } from '~/libs/appwrite';
-import { useLoadingStore } from '~/store/loading';
+import { useLoadingStore } from '~/store/loading.store';
 
 definePageMeta({ layout: "auth" });
 useHead({title: 'Auth | Jira'})
@@ -59,3 +59,4 @@ onMounted(() => {
     </UCard>
   </div>
 </template>
+~/store/loading.store

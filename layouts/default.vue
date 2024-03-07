@@ -1,6 +1,6 @@
 <script setup lang="ts">
 import { useAuthStore } from '~/store/auth.store';
-import { useLoadingStore } from '~/store/loading';
+import { useLoadingStore } from '~/store/loading.store';
 import { ACCOUNT } from '~/libs/appwrite';
 const authStore = useAuthStore()
 const loadingStore = useLoadingStore()
@@ -25,4 +25,4 @@ onMounted(() => {
             <slot/>
         </section>
     </template>
-</template>
+</template>~/store/loading.store

@@ -1,3 +1,9 @@
+import { EnumStatus } from '~/types'
+
+export const DB_ID = 'jira-db'
+export const COLLECTION_DEALS = 'deals'
+export const COLLECTION_COMMENTS = 'comments'
+
 export const tabs = [
 	{
 		label: 'Plan',
@@ -55,6 +61,7 @@ export const tabs = [
 		},
 	},
 ]
+
 export const templates = [
 	{
 		name: 'Scrum',
@@ -62,7 +69,7 @@ export const templates = [
 	},
 	{
 		name: 'Kanban',
-		image: '/kanban.svg',
+		image: '/documents.svg',
 	},
 	{
 		name: 'Bug tracking',
@@ -71,5 +78,56 @@ export const templates = [
 	{
 		name: 'DevOps',
 		image: '/devops.svg',
+	},
+]
+
+export const sidebarItems = [
+	{
+		name: 'Dashboards',
+		url: '/documents',
+		icon: 'radix-icons:dashboard',
+	},
+	{
+		icon: 'ri:todo-fill',
+		name: 'To Do',
+		url: '/documents/to-do',
+	},
+	{
+		icon: 'game-icons:progression',
+		name: 'In Progress',
+		url: '/documents/in-progress',
+	},
+	{
+		icon: 'eos-icons:product-subscriptions',
+		name: 'Produced',
+		url: '/documents/produced',
+	},
+	{
+		icon: 'ic:baseline-cloud-done',
+		name: 'Done',
+		url: '/documents/done',
+	},
+]
+
+export const status = [
+	{
+		id: EnumStatus.todo,
+		name: 'To do',
+		items: [],
+	},
+	{
+		id: EnumStatus['in-progress'],
+		name: 'In progress',
+		items: [],
+	},
+	{
+		id: EnumStatus.produced,
+		name: 'Produced',
+		items: [],
+	},
+	{
+		id: EnumStatus.done,
+		name: 'Done',
+		items: [],
 	},
 ]
