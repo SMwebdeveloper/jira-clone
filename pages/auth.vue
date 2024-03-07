@@ -1,5 +1,6 @@
 <script setup lang="ts">
 import { ACCOUNT } from '~/libs/appwrite';
+import { useLoadingStore } from '~/store/loading';
 
 definePageMeta({ layout: "auth" });
 useHead({title: 'Auth | Jira'})
@@ -8,15 +9,16 @@ const isLogin = ref(true);
 const toggleLogin = () => (isLogin.value = !isLogin.value);
 
 const router = useRouter()
+const loadingStore = useLoadingStore()
 onMounted(() => {
-   ACCOUNT.get().then(() => router.push('/'))
+   ACCOUNT.get().then(() => router.push('/')).catch(() => loadingStore.set(false))
 })
 </script>
 
 <template>
-  <!-- <UiLoader v-if="loadingStore.isLoading" /> -->
+  <UiLoader v-if="loadingStore.isLoading" />
 
-  <div class="flex items-center justify-center h-screen w-full relative">
+  <div v-else class="flex items-center justify-center h-screen w-full relative">
     <NuxtImg
       src="/bg-auth.jpg"
       class="absolute inset-0 w-full h-full object-cover z-10"
