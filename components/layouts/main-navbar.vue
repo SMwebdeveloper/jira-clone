@@ -6,6 +6,7 @@ import { useLoadingStore } from '~/store/loading.store';
 const { currentUser, clear } = useAuthStore()
 const loadingStore = useLoadingStore()
 const router = useRouter()
+
 const logout = async () => {
     loadingStore.set(true)
     await ACCOUNT.deleteSession('current')
