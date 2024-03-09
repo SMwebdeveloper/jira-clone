@@ -2,7 +2,7 @@
 import { status } from "~/constants";
 import { ACCOUNT } from "~/libs/appwrite";
 import { useAuthStore } from "~/store/auth.store";
-import { useStatusQuery } from "~/query/use-status";
+import { useStatus } from "~/query/use-status";
 import { useLoadingStore } from "~/store/loading.store";
 
 const router = useRouter();
@@ -28,7 +28,7 @@ onMounted(() => {
     )
     .finally(() => loadingStore.set(false));
 });
-const { data, isLoading } = useStatusQuery();
+const { data, isLoading, refetch } = useStatus();
 </script>
 
 <template>
@@ -51,10 +51,12 @@ const { data, isLoading } = useStatusQuery();
           <span class="text-sm text-neutral-500">{{ item.items.length }}</span>
         </div>
       </UButton>
+
+      <SharedCreateDeal :status="item.id" :refetch="refetch"/>
       <div
         v-for="card in item.items"
         :key="card.$id"
-        class="my-3 bg-gray-900 rounded-md p-2"
+				class="my-3 dark:bg-gray-900 bg-gray-100 rounded-md p-2 animation"
         role="button"
         draggable="true"
       >
@@ -79,3 +81,19 @@ const { data, isLoading } = useStatusQuery();
     </div>
   </div>
 </template>
+<style scoped>
+@keyframes show {
+	from {
+		transform: scale(0.5) translateY(-30px);
+		opacity: 0.4;
+	}
+	to {
+		transform: scale(1) translateY(0);
+		opacity: 1;
+	}
+}
+
+.animation {
+	animation: show 0.3s ease-in-out;
+}
+</style>
