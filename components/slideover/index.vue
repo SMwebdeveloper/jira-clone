@@ -22,7 +22,7 @@ const isLocalOpen = computed({
         <SlideoverTop />
       </template>
 
-      <SlideoverComments />
+			<SlideoverComments />
     </UCard>
   </USlideover>
 </template>
